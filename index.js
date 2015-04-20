@@ -1,4 +1,10 @@
-exports = module.exports = function cast(value) {
+exports = module.exports = cast;
+
+exports.fromCharToNumber = function(val) {
+  return cast(val).from('char').to('number');
+}
+
+function cast(value) {
 	var intValue = ('string' == typeof value) ? parseInt(value, 2) : value;
 	return {
 		from: function from(fromType) {
