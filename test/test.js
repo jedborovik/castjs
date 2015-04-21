@@ -39,5 +39,10 @@ describe('floatToBinary', function() {
   });
 });
 
-
-
+describe('reverseBytes', function() {
+  it('should work for four bytes', function() {
+    var input = '000102030405060708090a0b0c0d0e0f';
+    var output = '0c0d0e0f08090a0b0405060700010203';
+    assert.equal(cast.reverseBytes(input), output);
+  });
+});

@@ -8,6 +8,8 @@ exports.floatToBinary = function(val) {
   return cast(val).from('float').to('binary');
 }
 
+exports.reverseBytes = reverseBytes;
+
 function cast(value) {
   var intValue = ('string' == typeof value) ? parseInt(value, 2) : value;
   return {
@@ -66,4 +68,14 @@ function padWithZeros(str, length) {
     str = '0' + str;
   }
   return str;
+}
+
+function reverseBytes(binaryString) {
+  if (binaryString.length % 8 !== 0) throw Error('Bad binary string length');
+  var bytes = binaryString.match(/.{8}/g);
+  var reordered = bytes.reduce(function(acc, value) {
+    acc.unshift(value);
+    return acc;
+  }, []);
+  return reordered.join('');
 }
