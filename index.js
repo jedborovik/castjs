@@ -1,5 +1,16 @@
 exports = module.exports = cast;
 
+exports.toChar = function(num) {
+  if (num > 127 || num < -128) throw Error(num + " out of range of signed byte");
+  var data;
+  if (num >= 0) {
+    data = num;
+  } else {
+    data = ((-1 * num) - 1) ^ 0xFF;
+  }
+  return padWithZeros(data.toString(2), 8);
+}
+
 exports.charToNumber = function(val) {
   return cast(val).from('char').to('number');
 }

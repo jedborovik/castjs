@@ -26,6 +26,12 @@ describe('charToNumber', function() {
   });
 });
 
+describe('toChar', function() {
+  it('should handle negative inputs', function() {
+    assert.equal(cast.toChar(-100), '10011100');
+  });
+});
+
 describe('floatToBinary', function() {
   it('should handle floats greater than 1', function() {
     var input = 123.45;
