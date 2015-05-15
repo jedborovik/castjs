@@ -11,6 +11,11 @@ exports.toChar = function(num) {
   return padWithZeros(data.toString(2), 8);
 }
 
+exports.toByte = function(num) {
+  if (num > 255) throw Error(num + " out of range of byte");
+  return padWithZeros(num.toString(2), 8);
+}
+
 exports.charToNumber = function(val) {
   return cast(val).from('char').to('number');
 }

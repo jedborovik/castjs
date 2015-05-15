@@ -32,6 +32,12 @@ describe('toChar', function() {
   });
 });
 
+describe('toByte', function() {
+  it('should handle positive inputs', function() {
+    assert.equal(cast.toByte(100), '01100100');
+  });
+});
+
 describe('floatToBinary', function() {
   it('should handle floats greater than 1', function() {
     var input = 123.45;
